@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
-
+import Users from "./Users"
 import Movies from "./Movies";
 
 function App() {
@@ -36,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/movies">
           <Movies movies={movies} />
+        </Route>
+        <Route exact path="/users">
+          <Users users={users} />
         </Route>
       </Switch>
     </div>
