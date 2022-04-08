@@ -17,14 +17,14 @@ function UserCard({ user }) {
   return (
     <li>
       <h1 onClick={handleClick}>{user.name}</h1>
-      <h2>{user.publication}</h2>
-      <ol style={show ? {} : { display: "none" }}>
+      <h3>{user.publication}</h3>
+      <ul style={show ? {} : { display: "none" }}>
         {reviews.map((review) => (
-          <h3>
+          <p>
             {review.movie.title}: {review.comment}
-          </h3>
+          </p>
         ))}
-      </ol>
+      </ul>
     </li>
   );
 }

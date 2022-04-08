@@ -26,7 +26,7 @@ function NavBar() {
           Movies
         </NavLink>
         <NavLink to="/users" exact style={{ color: "white" }}>
-          Reviewers
+          Critics
         </NavLink>
         <NavLink to="/addmovie" exact style={{ color: "white" }}>
           Add Movie

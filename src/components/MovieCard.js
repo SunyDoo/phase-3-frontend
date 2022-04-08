@@ -32,7 +32,7 @@ function MovieCard({ movie }) {
       <h1>
         {movie.title} 
       </h1>
-      <p>Average Score: {findAverageAge(average)}</p>
+      <p>Average Critic Score: {findAverageAge(average)}</p>
       <img src={movie.image} alt={movie.title} onClick={handleClick} />
       <span>
         <ol style={display ? {} : { display: "none" }}>
