@@ -3,7 +3,7 @@
   flex-direction: row;
   padding: 20px;
   text-align: center;
-  list-style-type: none;
+  /* list-style-type: none; */
   justify-content: center;
 }
 

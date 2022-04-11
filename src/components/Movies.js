@@ -5,11 +5,11 @@ function Movies({ movies }) {
   return (
     <>
       <div>
-        <ul class="topContainer">
+        <ol className="topContainer">
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} className="card" />
           ))}
-        </ul>
+        </ol>
       </div>
     </>
   );

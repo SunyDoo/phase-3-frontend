@@ -6,8 +6,6 @@ function AddMovie({ onAddMovie }) {
   const [genre, setGenre] = useState("Drama");
   const [year, setYear] = useState(1999);
 
-  //   const [checked, setChecked] = useState(false);
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -25,7 +23,7 @@ function AddMovie({ onAddMovie }) {
       body: JSON.stringify(movieData),
     })
       .then((r) => r.json())
-      .then((newMovie) => console.log(newMovie));
+      .then((newMovie) => onAddMovie(newMovie));
   }
 
   return (

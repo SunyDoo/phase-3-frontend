@@ -5,11 +5,11 @@ function Users({ users }) {
   return (
     <>
       <div>
-        <ul>
+        <ol>
           {users.map((user) => (
             <UserCard key={user.id} user={user} />
           ))}
-        </ul>
+        </ol>
       </div>
     </>
   );

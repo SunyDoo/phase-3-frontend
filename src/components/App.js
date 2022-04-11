@@ -7,7 +7,7 @@ import AddMovie from "./AddMovie";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [reviews, setReviews] = useState([]);
+  // const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -16,11 +16,11 @@ function App() {
       .then((movies) => setMovies(movies));
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:9292/reviews")
-      .then((r) => r.json())
-      .then((reviews) => setReviews(reviews));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/reviews")
+  //     .then((r) => r.json())
+  //     .then((reviews) => setReviews(reviews));
+  // }, []);
 
   useEffect(() => {
     fetch("http://localhost:9292/users")
@@ -31,6 +31,8 @@ function App() {
   function handleAddMovie(newMovie) {
     setMovies([...movies, newMovie]);
   }
+
+  
 
   return (
     <div>
@@ -43,7 +45,7 @@ function App() {
           <Movies movies={movies} />
         </Route>
         <Route exact path="/users">
-          <Users users={users} />
+          <Users users={users}  />
         </Route>
         <Route exact path="/addmovie">
           <AddMovie onAddMovie={handleAddMovie} />
