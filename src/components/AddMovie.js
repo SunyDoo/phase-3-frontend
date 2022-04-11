@@ -89,4 +89,4 @@ function AddMovie({ onAddMovie }) {
   );
 }
 
-export default AddExercise;
+export default AddMovie;

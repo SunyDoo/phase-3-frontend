@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
-import Users from "./Users"
+import Users from "./Users";
 import Movies from "./Movies";
+import AddMovie from "./AddMovie";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -27,6 +28,10 @@ function App() {
       .then((users) => setUsers(users));
   }, []);
 
+  function handleAddMovie(newMovie) {
+    setMovies([...movies, newMovie]);
+  }
+
   return (
     <div>
       <NavBar />
@@ -39,6 +44,9 @@ function App() {
         </Route>
         <Route exact path="/users">
           <Users users={users} />
+        </Route>
+        <Route exact path="/addmovie">
+          <AddMovie onAddMovie={handleAddMovie} />
         </Route>
       </Switch>
     </div>
