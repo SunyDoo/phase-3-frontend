@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import EditReview from "./EditReview";
 
-function ReviewCard({ review }) {
+function ReviewCard({ review, updateReview }) {
     const [isEditing, setIsEditing] = useState(false);
 //   const [display, setDisplay] = useState(false);
 //   const [average, setAverage] = useState([]);
@@ -20,6 +21,10 @@ function ReviewCard({ review }) {
 //   function handleClick() {
 //     setDisplay((display) => !display);
 //   }
+function handleUpdateReview(updatedReview) {
+    setIsEditing(false);
+    updateReview(updatedReview);
+  }
 
 
 

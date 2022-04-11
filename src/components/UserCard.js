@@ -25,6 +25,17 @@ function UserCard({ user }) {
     setReviews([...reviews, newReview]);
   }
 
+  function handleUpdatedReview(updatedReview) {
+    const updatedReviews = reviews.map((review) => {
+      if (review.id === updatedReview.id) {
+        return updatedReview;
+      } else {
+        return review;
+      }
+    });
+    setReviews(updatedReviews);
+  }
+
   return (
     <li>
       <h1 onClick={handleClick}>{user.name}</h1>
@@ -32,7 +43,11 @@ function UserCard({ user }) {
       <ul style={show ? {} : { display: "none" }}>
         {reviews.map((review) => (
           <ul>
-            <ReviewCard key={review.id} review={review} />
+            <ReviewCard
+              key={review.id}
+              review={review}
+              updateReview={handleUpdatedReview}
+            />
           </ul>
         ))}
       </ul>
