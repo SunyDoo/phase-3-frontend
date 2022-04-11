@@ -28,10 +28,8 @@ function MovieCard({ movie }) {
   };
 
   return (
-    <li>
-      <h1>
-        {movie.title} 
-      </h1>
+    <li class="list">
+      <h1>{movie.title}</h1>
       <p>Average Critic Score: {findAverageAge(average)}%</p>
       <img src={movie.image} alt={movie.title} onClick={handleClick} />
       <span>

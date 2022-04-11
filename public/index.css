@@ -1,0 +1,12 @@
+.topContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  text-align: center;
+}
+
+.list {
+  /* display: flex;
+    flex-direction: row; */
+  padding: 20px;
+}
