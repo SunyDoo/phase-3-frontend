@@ -1,54 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import EditReview from "./EditReview";
 
 function ReviewCard({ review, updateReview }) {
-    const [isEditing, setIsEditing] = useState(false);
-//   const [display, setDisplay] = useState(false);
-//   const [average, setAverage] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
 
-//   useEffect(() => {
-//     fetch(`http://localhost:9292/movies/${movie.id}`)
-//       .then((r) => r.json())
-//       .then((movie) => setScores(movie.reviews));
-//   }, []);
-
-//   useEffect(() => {
-//     fetch(`http://localhost:9292/movies/${movie.id}/average_score`)
-//       .then((r) => r.json())
-//       .then((movie) => setAverage(movie.reviews));
-//   }, []);
-
-//   function handleClick() {
-//     setDisplay((display) => !display);
-//   }
-function handleUpdateReview(updatedReview) {
+  function handleUpdateReview(updatedReview) {
     setIsEditing(false);
     updateReview(updatedReview);
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
+  function handleDeleteClick() {
+    fetch(`http://localhost:9292/reviews/${review.id}`, {
+      method: "DELETE",
+    });
+
+    refreshPage();
+  }
 
   return (
     <li className="list">
-        {isEditing ? (
+      {isEditing ? (
         <EditReview
           key={review.id}
           review={review}
           onUpdateReview={handleUpdateReview}
         />
       ) : (
-        <p>{review.movie.title}: {review.comment}</p>
-      )}      
+        <p>
+          {review.movie.title}: {review.comment}
+        </p>
+      )}
       <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
-            <span role="img" aria-label="edit">
-              ✏️
-            </span>
-          </button>
-          <button >
-            <span role="img" aria-label="delete">
-              🗑
-            </span>
-          </button>      
+        <span role="img" aria-label="edit">
+          ✏️
+        </span>
+      </button>
+      <button onClick={handleDeleteClick}>
+        <span role="img" aria-label="delete">
+          🗑
+        </span>
+      </button>
     </li>
   );
 }

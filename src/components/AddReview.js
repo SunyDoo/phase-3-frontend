@@ -5,9 +5,7 @@ function AddReview({ onAddReview, user }) {
   const [score, setScore] = useState(0);
   const [comment, setComment] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function handleSubmit() {
     const reviewData = {
       movie_id: movieNumber,
       score: score,

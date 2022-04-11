@@ -6,9 +6,7 @@ function AddMovie({ onAddMovie }) {
   const [genre, setGenre] = useState("Drama");
   const [year, setYear] = useState(1999);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
+  function handleSubmit() {
     const movieData = {
       title: movie,
       genre: genre,
