@@ -25,8 +25,15 @@ function ReviewCard({ review }) {
 
   return (
     <li className="list">
-        
-      <p>{review.movie.title}: {review.comment}</p>
+        {isEditing ? (
+        <EditReview
+          key={review.id}
+          review={review}
+          onUpdateReview={handleUpdateReview}
+        />
+      ) : (
+        <p>{review.movie.title}: {review.comment}</p>
+      )}      
       <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
             <span role="img" aria-label="edit">
               ✏️
