@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddReview from "./AddReview.js";
 import ReviewCard from "./ReviewCard.js";
 
 function UserCard({ user, reviews, movies }) {
-  const [posts, setPosts] = useState(reviews);
+  const [posts, setPosts] = useState([]);
   const [show, setShow] = useState(false);
   const [display, setDisplay] = useState(false);
+
+  useEffect(() => {
+    setPosts(reviews);
+  }, []);
 
   function handleClick() {
     setShow((show) => !show);

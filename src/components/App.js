@@ -23,7 +23,12 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/">
-          <h1>Welcome To Sunil's Movie Reviews</h1>
+          <h1>Welcome To</h1>
+          <img
+            src="https://i.pinimg.com/originals/e6/de/55/e6de557d0df49736cd27c5c7ead566a9.jpg"
+            alt="Movie Logo"
+            className="homeImage"
+          />
         </Route>
         <Route exact path="/movies">
           <Movies movies={movies} />
