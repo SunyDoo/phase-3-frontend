@@ -6,8 +6,8 @@
   flex-direction: row;
   padding: 20px;
   text-align: center;
-
   justify-content: center;
+  /* list-style-type: none; */
 }
 
 .list {

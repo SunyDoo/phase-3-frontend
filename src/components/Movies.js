@@ -7,7 +7,12 @@ function Movies({ movies }) {
       <div className="cardList">
         <ol className="topContainer">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} className="card" />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              reviews={movie.reviews}
+              className="card"
+            />
           ))}
         </ol>
       </div>

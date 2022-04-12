@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-function MovieCard({ movie }) {
-  const [scores, setScores] = useState([]);
+function MovieCard({ movie, reviews }) {
+  const [critiques, setCritiques] = useState(reviews);
   const [display, setDisplay] = useState(false);
-  const [average, setAverage] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:9292/movies/${movie.id}`)
-      .then((r) => r.json())
-      .then((movie) => setScores(movie.reviews));
-  }, []);
-
-  useEffect(() => {
-    fetch(`http://localhost:9292/movies/${movie.id}/average_score`)
-      .then((r) => r.json())
-      .then((movie) => setAverage(movie.reviews));
-  }, []);
 
   function handleClick() {
     setDisplay((display) => !display);
@@ -30,13 +17,13 @@ function MovieCard({ movie }) {
   return (
     <li className="list">
       <h1>{movie.title}</h1>
-      <p>Average Critic Score: {findAverageAge(average)}%</p>
+      <p>Average Critic Score: {findAverageAge(critiques)}%</p>
       <img src={movie.image} alt={movie.title} onClick={handleClick} />
       <span>
         <ol style={display ? {} : { display: "none" }}>
-          {scores.map((score) => (
+          {critiques.map((review) => (
             <p>
-              {score.user.publication}: {score.score}
+              {review.user.publication}: {review.score}
             </p>
           ))}
         </ol>
