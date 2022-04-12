@@ -15,7 +15,7 @@ function MovieCard({ movie, reviews }) {
 
   return (
     <li className="list">
-      <h1>{movie.title}</h1>
+      <h3>{movie.title}</h3>
       <p>
         {findAverageAge(reviews) > 75 ? "🍅" : "👎"}Average Critic Score:{" "}
         {findAverageAge(reviews)}%

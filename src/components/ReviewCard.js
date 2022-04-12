@@ -12,9 +12,8 @@ function ReviewCard({ review, updateReview, handleDelete }) {
   function handleDeleteClick() {
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then(() => handleDelete(review));
+    });
+    handleDelete(review);
   }
 
   return (
