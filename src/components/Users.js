@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserCard from "./UserCard";
 
-function Users() {
+function Users({ movies }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,12 @@ function Users() {
       <div>
         <ol>
           {users.map((user) => (
-            <UserCard key={user.id} user={user} reviews={reviews} />
+            <UserCard
+              key={user.id}
+              user={user}
+              reviews={user.reviews}
+              movies={movies}
+            />
           ))}
         </ol>
       </div>

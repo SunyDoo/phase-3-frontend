@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
-function AddReview({ onAddReview, user }) {
+function AddReview({ onAddReview, user, movies }) {
   const [movieNumber, setMovieNumber] = useState(1);
   const [score, setScore] = useState(0);
   const [comment, setComment] = useState("");
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     const reviewData = {
       movie_id: movieNumber,
       score: score,
@@ -29,12 +30,17 @@ function AddReview({ onAddReview, user }) {
         <form onSubmit={handleSubmit}>
           <label>
             Movie Number:
-            <input
-              type="text"
+            <select
               name="movieNumber"
               value={movieNumber}
               onChange={(e) => setMovieNumber(e.target.value)}
-            />
+            >
+              {movies.map((movie) => (
+                <option key={movie.id} value={movie.id}>
+                  {movie.title}
+                </option>
+              ))}
+            </select>
           </label>
           <label>
             Score:

@@ -17,7 +17,7 @@ function MovieCard({ movie, reviews }) {
     <li className="list">
       <h1>{movie.title}</h1>
       <p>
-        {findAverageAge(reviews) > 70 ? "🍅" : "👎"}Average Critic Score:{" "}
+        {findAverageAge(reviews) > 75 ? "🍅" : "👎"}Average Critic Score:{" "}
         {findAverageAge(reviews)}%
       </p>
       <img src={movie.image} alt={movie.title} onClick={handleClick} />

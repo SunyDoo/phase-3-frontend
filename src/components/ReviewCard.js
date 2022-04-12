@@ -9,16 +9,12 @@ function ReviewCard({ review, updateReview }) {
     updateReview(updatedReview);
   }
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
 
   function handleDeleteClick() {
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
     });
-
-    refreshPage();
+    // updateList(review)
   }
 
   return (

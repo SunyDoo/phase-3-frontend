@@ -29,7 +29,7 @@ function App() {
           <Movies movies={movies} />
         </Route>
         <Route exact path="/users">
-          <Users/>
+          <Users movies={movies} />
         </Route>
         <Route exact path="/addmovie">
           <AddMovie onAddMovie={handleAddMovie} />

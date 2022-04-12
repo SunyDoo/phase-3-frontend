@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import AddReview from "./AddReview.js";
 import ReviewCard from "./ReviewCard.js";
 
-function UserCard({ user }) {
-  const [reviews, setReviews] = useState([]);
+function UserCard({ user, reviews, movies }) {
+  const [posts, setPosts] = useState([]);
   const [show, setShow] = useState(false);
   const [display, setDisplay] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:9292/users/${user.id}`)
-      .then((r) => r.json())
-      .then((users) => setReviews(users.reviews));
+    setPosts(reviews);
   }, []);
+  console.log(posts);
 
   function handleClick() {
     setShow((show) => !show);
@@ -22,7 +21,7 @@ function UserCard({ user }) {
   }
 
   function handleAddReview(newReview) {
-    setReviews([...reviews, newReview]);
+    setPosts([...posts, newReview]);
   }
 
   function handleUpdatedReview(updatedReview) {
@@ -33,7 +32,7 @@ function UserCard({ user }) {
         return review;
       }
     });
-    setReviews(updatedReviews);
+    setPosts(updatedReviews);
   }
 
   return (
@@ -55,7 +54,7 @@ function UserCard({ user }) {
         {!display ? "Add Review" : "Close"}
       </button>
       <div style={display ? {} : { display: "none" }}>
-        <AddReview user={user} onAddReview={handleAddReview} />
+        <AddReview user={user} onAddReview={handleAddReview} movies={movies} />
       </div>
     </li>
   );
