@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AddReview from "./AddReview.js";
 import ReviewCard from "./ReviewCard.js";
 
 function UserCard({ user, reviews, movies }) {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(reviews);
   const [show, setShow] = useState(false);
   const [display, setDisplay] = useState(false);
-
-  useEffect(() => {
-    setPosts(reviews);
-  }, []);
 
   function handleClick() {
     setShow((show) => !show);
@@ -40,9 +36,7 @@ function UserCard({ user, reviews, movies }) {
       (review) => review.id !== deletedReview.id
     );
     setPosts(updatedPosts);
-    console.log(posts);
   }
-  // console.log(posts);
 
   return (
     <li>

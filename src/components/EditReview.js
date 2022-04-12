@@ -4,9 +4,7 @@ function EditReview({ review, onUpdateReview }) {
   const [comment, setComment] = useState(review.comment);
   const [score, setScore] = useState(review.score);
 
-  function handleFormSubmit(e) {
-    e.preventDefault();
-
+  function handleFormSubmit() {
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "PATCH",
       headers: {

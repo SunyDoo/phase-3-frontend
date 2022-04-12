@@ -9,7 +9,7 @@ function ReviewCard({ review, updateReview, handleDelete }) {
     updateReview(updatedReview);
   }
 
-  function handleDeleteClick(e) {
+  function handleDeleteClick() {
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
     });
