@@ -15,7 +15,7 @@ function Users() {
       <div>
         <ol>
           {users.map((user) => (
-            <UserCard key={user.id} user={user} />
+            <UserCard key={user.id} user={user} reviews={reviews} />
           ))}
         </ol>
       </div>
