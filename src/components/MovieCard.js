@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function MovieCard({ movie, reviews }) {
-  const [critiques, setCritiques] = useState(reviews);
   const [display, setDisplay] = useState(false);
 
   function handleClick() {
@@ -18,13 +17,13 @@ function MovieCard({ movie, reviews }) {
     <li className="list">
       <h1>{movie.title}</h1>
       <p>
-        {findAverageAge(critiques) > 70 ? "🍅" : "👎"}
-        Average Critic Score: {findAverageAge(critiques)}%
+        {findAverageAge(reviews) > 70 ? "🍅" : "👎"}
+        Average Critic Score: {findAverageAge(reviews)}%
       </p>
       <img src={movie.image} alt={movie.title} onClick={handleClick} />
       <span>
         <ol style={display ? {} : { display: "none" }}>
-          {critiques.map((review) => (
+          {reviews.map((review) => (
             <p>
               {review.user.publication}: {review.score}
             </p>
