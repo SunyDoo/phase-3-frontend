@@ -10,7 +10,6 @@ function UserCard({ user, reviews, movies }) {
   useEffect(() => {
     setPosts(reviews);
   }, []);
-  console.log(posts);
 
   function handleClick() {
     setShow((show) => !show);
@@ -21,7 +20,7 @@ function UserCard({ user, reviews, movies }) {
   }
 
   function handleAddReview(newReview) {
-    setPosts([...posts, newReview]);
+    setPosts((posts) => [...posts, newReview]);
   }
 
   function handleUpdatedReview(updatedReview) {
@@ -32,8 +31,18 @@ function UserCard({ user, reviews, movies }) {
         return review;
       }
     });
+    console.log(updatedReviews);
     setPosts(updatedReviews);
   }
+
+  function handleDelete(deletedReview) {
+    const updatedPosts = posts.filter(
+      (review) => review.id !== deletedReview.id
+    );
+    setPosts(updatedPosts);
+    console.log(posts);
+  }
+  // console.log(posts);
 
   return (
     <li>
@@ -46,6 +55,7 @@ function UserCard({ user, reviews, movies }) {
               key={review.id}
               review={review}
               updateReview={handleUpdatedReview}
+              handleDelete={handleDelete}
             />
           </ul>
         ))}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditReview from "./EditReview";
 
-function ReviewCard({ review, updateReview }) {
+function ReviewCard({ review, updateReview, handleDelete }) {
   const [isEditing, setIsEditing] = useState(false);
 
   function handleUpdateReview(updatedReview) {
@@ -9,12 +9,11 @@ function ReviewCard({ review, updateReview }) {
     updateReview(updatedReview);
   }
 
-
-  function handleDeleteClick() {
+  function handleDeleteClick(e) {
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
     });
-    // updateList(review)
+    handleDelete(review);
   }
 
   return (
