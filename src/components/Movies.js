@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 function Movies({ movies }) {
   return (
     <>
-      <div>
+      <div className="cardList">
         <ol className="topContainer">
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} className="card" />
