@@ -18,7 +18,7 @@ function MovieCard({ movie, reviews }) {
       <h3>{movie.title}</h3>
       <p>
         {findAverageAge(reviews) > 75 ? "🍅" : "👎"}Average Critic Score:{" "}
-        {findAverageAge(reviews)}%
+        {Math.round(findAverageAge(reviews))}%
       </p>
       <img src={movie.image} alt={movie.title} onClick={handleClick} />
       <span>
