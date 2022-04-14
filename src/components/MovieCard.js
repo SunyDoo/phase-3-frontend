@@ -24,7 +24,7 @@ function MovieCard({ movie, reviews }) {
       <span>
         <ol style={display ? {} : { display: "none" }}>
           {reviews.map((review) => (
-            <p>
+            <p key={review.id}>
               {review.user.publication}: {review.score}
             </p>
           ))}

@@ -10,10 +10,10 @@ function ReviewCard({ review, updateReview, handleDelete }) {
   }
 
   function handleDeleteClick() {
+    // e.preventDefault()
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
-    });
-    handleDelete(review);
+    }).then(() => handleDelete(review));
   }
 
   return (
@@ -44,5 +44,3 @@ function ReviewCard({ review, updateReview, handleDelete }) {
 }
 
 export default ReviewCard;
-
-// {findAverageAge(average) > 70 ? 🍅 : 👎}

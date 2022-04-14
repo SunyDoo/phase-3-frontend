@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AddReview from "./AddReview.js";
 import ReviewCard from "./ReviewCard.js";
 
 function UserCard({ user, reviews, movies }) {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(reviews);
   const [show, setShow] = useState(false);
   const [display, setDisplay] = useState(false);
-
-  useEffect(() => {
-    setPosts(reviews);
-  }, []);
 
   function handleClick() {
     setShow((show) => !show);
@@ -20,7 +16,7 @@ function UserCard({ user, reviews, movies }) {
   }
 
   function handleAddReview(newReview) {
-    setPosts((posts) => [...posts, newReview]);
+    setPosts((posts) => [...posts, newReview])
   }
 
   function handleUpdatedReview(updatedReview) {
@@ -47,10 +43,9 @@ function UserCard({ user, reviews, movies }) {
       <h1 onClick={handleClick}>{user.name}</h1>
       <h3>{user.publication}</h3>
       <ul style={show ? {} : { display: "none" }}>
-        {reviews.map((review) => (
-          <ul>
+        {posts.map((review) => (
+          <ul key={review.id}>
             <ReviewCard
-              key={review.id}
               review={review}
               updateReview={handleUpdatedReview}
               handleDelete={handleDelete}
