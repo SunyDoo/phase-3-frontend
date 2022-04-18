@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# Phase3-Final-Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sunil's Movie Reviews
 
-## Available Scripts
+### Overview
 
-In the project directory, you can run:
+Sunil's Movie Reviews will be a webpage for users who want to see a list of movies and reviews associated with those movies.
+Visitors will be able taken to the homepage of the site upon arrival and then can navigate through the various "pages" of the site via the navbar at the top of the page.
+Users will also be able to submit a form to add a movie of their choice to the list of available movies. They will enter the movie's information as well as a link to a picture of the movie. Reviews from the available critics can also be added to any new movies.
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The page will load the homepage with a navbar at the top.
+The "Movies" button will bring up all available movies, where with the average critic score. A tomato will appear for any movie with an average score above 75%, and a thumbs down will appear next to the average score if it is below 75%. Clicking on the movie poster will reveal all publications that have reviewed the movie, as well as the score given.
+The "Add Movie" tab will bring up a form that users can fill out to submit a new movie to the list. Any new movie added will immediately have an average critic score of 0% since no reviews have been added yet.
+The "Critics" tab displays all the critics, as well as the publication they work for. If their name is clicked, all the movies they've reviewed along with the reviews will be displayed. Underneath each individual review two buttons will appear. An edit button to edit their original review, in case they change their mind about a movie, and a delete button to remove the review altogether. Lastly, underneath each critic will be a button to add a review. So when a new movie is added to the list, a user can add a review from a critic to that movie.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Project Requirements
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Sinatra based database with 3 models and "one-to-many" relationships - Movies, Reviews, and Critics
+2. Active-Record used to interact with database
+3. Create and Read actions for Movies model
+4. Full CRUD capability for Reviews model
+5. Separate react frontend application that interacts with the API to perform the CRUD actions
